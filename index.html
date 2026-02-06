@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Language Quiz App</title>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg,#667eea,#764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+}
+
+h2 { font-size: 28px; color: #333; }
+
+input {
+  padding: 12px;
+  width: 92%;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  margin: 6px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover { transform: scale(1.05); }
+
+.submit { background: #28a745; }
+.next { background: #007bff; }
+.speak { background: #6f42c1; }
+.show { background: #e91e63; }
+
+.toggle {
+  width: 100%;
+  margin-bottom: 10px;
+  background: #ff9800;
+}
+
+#result { margin-top: 10px; font-weight: bold; }
+#score { margin-top: 5px; color: #555; }
+#correctBox { margin-top: 8px; color: #e91e63; font-weight: bold; }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <button class="toggle" onclick="toggleMode()" id="modeBtn">
+    Mode: Random 🎲
+  </button>
+
+  <button class="toggle" onclick="toggleDirection()" id="dirBtn">
+    Direction: EN → DE 🌍
+  </button>
+
+  <h2 id="word">Word</h2>
+
+  <input id="answerInput" placeholder="Type answer">
+
+  <br>
+
+  <button class="submit" onclick="checkAnswer()">Submit</button>
+  <button class="next" onclick="newWord()">Next</button>
+  <button class="speak" onclick="repeatSpeak()">🔊 Speak</button>
+
+  <button class="show" id="showBtn" onclick="showCorrect()" style="display:none;">
+    Show Correct Spelling
+  </button>
+
+  <div id="correctBox"></div>
+
+  <p id="result"></p>
+  <p id="score">Score: 0</p>
+
+</div>
+
+<script>
+const words = [
+  { en: "Apple", de: "Apfel" },
+  { en: "Car", de: "Auto" },
+  { en: "House", de: "Haus" },
+  { en: "Book", de: "Buch" },
+  { en: "Water", de: "Wasser" }
+];
+
+let currentIndex = 0;
+let currentWord = {};
+let randomMode = true;
+let score = 0;
+let directionENtoDE = true;
+let lastLang = "en-US";
+
+// SPEAK
+function speak(text, lang="en-US") {
+  window.speechSynthesis.cancel();
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = lang;
+  window.speechSynthesis.speak(speech);
+}
+
+function repeatSpeak() {
+  speak(word.innerText, lastLang);
+}
+
+function toggleMode() {
+  randomMode = !randomMode;
+  modeBtn.innerText = randomMode ? "Mode: Random 🎲" : "Mode: Sequence 📘";
+  newWord();
+}
+
+function toggleDirection() {
+  directionENtoDE = !directionENtoDE;
+  dirBtn.innerText = directionENtoDE
+    ? "Direction: EN → DE 🌍"
+    : "Direction: DE → EN 🌎";
+  newWord();
+}
+
+function newWord() {
+  showBtn.style.display = "none";
+  correctBox.innerText = "";
+
+  if (randomMode) {
+    const i = Math.floor(Math.random() * words.length);
+    currentWord = words[i];
+  } else {
+    currentWord = words[currentIndex];
+    currentIndex = (currentIndex + 1) % words.length;
+  }
+
+  setDisplayWord();
+}
+
+function setDisplayWord() {
+  let showWord, lang;
+
+  if (directionENtoDE) {
+    showWord = currentWord.en;
+    lang = "en-US";
+  } else {
+    showWord = currentWord.de;
+    lang = "de-DE";
+  }
+
+  word.innerText = showWord;
+  answerInput.value = "";
+  result.innerText = "";
+  lastLang = lang;
+
+  setTimeout(() => speak(showWord, lang), 200);
+}
+
+function checkAnswer() {
+  const user = answerInput.value.trim().toLowerCase();
+
+  let correct = directionENtoDE
+    ? currentWord.de.toLowerCase()
+    : currentWord.en.toLowerCase();
+
+  if (user === correct) {
+    score++;
+    result.innerText = "Correct ✅";
+    updateScore();
+    setTimeout(newWord, 1200);
+  } else {
+    result.innerText = "Wrong ❌";
+    showBtn.style.display = "inline-block";
+  }
+}
+
+function showCorrect() {
+  let correctWord, lang;
+
+  if (directionENtoDE) {
+    correctWord = currentWord.de;
+    lang = "de-DE";
+  } else {
+    correctWord = currentWord.en;
+    lang = "en-US";
+  }
+
+  correctBox.innerText = "Correct: " + correctWord;
+  speak(correctWord, lang);
+
+  // Ask again after 3 seconds
+  setTimeout(() => {
+    correctBox.innerText = "";
+    answerInput.value = "";
+    result.innerText = "Try Again ✍️";
+    setDisplayWord();
+  }, 3000);
+}
+
+function updateScore() {
+  document.getElementById("score").innerText = "Score: " + score;
+}
+
+newWord();
+</script>
+
+</body>
+</html>

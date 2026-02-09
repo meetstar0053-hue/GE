@@ -644,12 +644,14 @@ function setDisplayWord() {
 
 function checkAnswer() {
   const user = answerInput.value.trim().toLowerCase();
-
   let correct;
 
   if (directionENtoDE) {
-    // Expect article + noun
-    correct = (currentWord.art + " " + currentWord.de).toLowerCase();
+    if (currentWord.art) {
+      correct = (currentWord.art + " " + currentWord.de).toLowerCase();
+    } else {
+      correct = currentWord.de.toLowerCase();
+    }
   } else {
     correct = currentWord.en.toLowerCase();
   }
@@ -665,18 +667,20 @@ function checkAnswer() {
   }
 }
 
-
 function showCorrect() {
   let correctWord, lang;
 
   if (directionENtoDE) {
-  correctWord = currentWord.art + " " + currentWord.de;
-  lang = "de-DE";
-} else {
-  correctWord = currentWord.en;
-  lang = "en-US";
-}
-
+    if (currentWord.art) {
+      correctWord = currentWord.art + " " + currentWord.de;
+    } else {
+      correctWord = currentWord.de;
+    }
+    lang = "de-DE";
+  } else {
+    correctWord = currentWord.en;
+    lang = "en-US";
+  }
 
   correctBox.innerText = "Correct: " + correctWord;
   speak(correctWord, lang);

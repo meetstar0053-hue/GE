@@ -123,12 +123,459 @@ button:hover { transform: scale(1.03); }
 
 <script>
 const words = [
-  { en: "Apple", de: "Apfel" },
-  { en: "Car", de: "Auto" },
-  { en: "House", de: "Haus" },
-  { en: "Book", de: "Buch" },
-  { en: "Water", de: "Wasser" }
+]const words = [
+
+/* PEOPLE & FAMILY */
+{en:"person",de:"Person",art:"die"},
+{en:"man",de:"Mann",art:"der"},
+{en:"woman",de:"Frau",art:"die"},
+{en:"child",de:"Kind",art:"das"},
+{en:"family",de:"Familie",art:"die"},
+{en:"mother",de:"Mutter",art:"die"},
+{en:"father",de:"Vater",art:"der"},
+{en:"brother",de:"Bruder",art:"der"},
+{en:"sister",de:"Schwester",art:"die"},
+{en:"parents",de:"Eltern",art:"die"},
+{en:"friend",de:"Freund",art:"der"},
+{en:"girlfriend",de:"Freundin",art:"die"},
+{en:"boyfriend",de:"Freund",art:"der"},
+{en:"husband",de:"Ehemann",art:"der"},
+{en:"wife",de:"Ehefrau",art:"die"},
+{en:"baby",de:"Baby",art:"das"},
+{en:"name",de:"Name",art:"der"},
+{en:"age",de:"Alter",art:"das"},
+{en:"people",de:"Leute",art:"die"},
+{en:"neighbor",de:"Nachbar",art:"der"},
+
+/* FOOD & DRINK */
+{en:"food",de:"Essen",art:"das"},
+{en:"drink",de:"Getränk",art:"das"},
+{en:"water",de:"Wasser",art:"das"},
+{en:"milk",de:"Milch",art:"die"},
+{en:"bread",de:"Brot",art:"das"},
+{en:"butter",de:"Butter",art:"die"},
+{en:"cheese",de:"Käse",art:"der"},
+{en:"egg",de:"Ei",art:"das"},
+{en:"meat",de:"Fleisch",art:"das"},
+{en:"fish",de:"Fisch",art:"der"},
+{en:"apple",de:"Apfel",art:"der"},
+{en:"banana",de:"Banane",art:"die"},
+{en:"orange",de:"Orange",art:"die"},
+{en:"vegetable",de:"Gemüse",art:"das"},
+{en:"potato",de:"Kartoffel",art:"die"},
+{en:"rice",de:"Reis",art:"der"},
+{en:"soup",de:"Suppe",art:"die"},
+{en:"coffee",de:"Kaffee",art:"der"},
+{en:"tea",de:"Tee",art:"der"},
+{en:"juice",de:"Saft",art:"der"},
+{en:"beer",de:"Bier",art:"das"},
+{en:"cake",de:"Kuchen",art:"der"},
+{en:"sugar",de:"Zucker",art:"der"},
+{en:"salt",de:"Salz",art:"das"},
+{en:"chicken",de:"Huhn",art:"das"},
+{en:"menu",de:"Speisekarte",art:"die"},
+{en:"restaurant",de:"Restaurant",art:"das"},
+{en:"breakfast",de:"Frühstück",art:"das"},
+{en:"lunch",de:"Mittagessen",art:"das"},
+{en:"dinner",de:"Abendessen",art:"das"},
+
+/* HOME */
+{en:"house",de:"Haus",art:"das"},
+{en:"apartment",de:"Wohnung",art:"die"},
+{en:"room",de:"Zimmer",art:"das"},
+{en:"kitchen",de:"Küche",art:"die"},
+{en:"bathroom",de:"Bad",art:"das"},
+{en:"door",de:"Tür",art:"die"},
+{en:"window",de:"Fenster",art:"das"},
+{en:"table",de:"Tisch",art:"der"},
+{en:"chair",de:"Stuhl",art:"der"},
+{en:"bed",de:"Bett",art:"das"},
+{en:"sofa",de:"Sofa",art:"das"},
+{en:"lamp",de:"Lampe",art:"die"},
+{en:"wall",de:"Wand",art:"die"},
+{en:"floor",de:"Boden",art:"der"},
+{en:"key",de:"Schlüssel",art:"der"},
+{en:"bag",de:"Tasche",art:"die"},
+{en:"mirror",de:"Spiegel",art:"der"},
+{en:"television",de:"Fernseher",art:"der"},
+{en:"kettle",de:"Wasserkocher",art:"der"},
+{en:"plate",de:"Teller",art:"der"},
+
+/* SCHOOL & WORK */
+{en:"school",de:"Schule",art:"die"},
+{en:"teacher",de:"Lehrer",art:"der"},
+{en:"student",de:"Student",art:"der"},
+{en:"book",de:"Buch",art:"das"},
+{en:"pen",de:"Stift",art:"der"},
+{en:"paper",de:"Papier",art:"das"},
+{en:"office",de:"Büro",art:"das"},
+{en:"job",de:"Job",art:"der"},
+{en:"work",de:"Arbeit",art:"die"},
+{en:"boss",de:"Chef",art:"der"},
+{en:"colleague",de:"Kollege",art:"der"},
+{en:"computer",de:"Computer",art:"der"},
+{en:"email",de:"E-Mail",art:"die"},
+{en:"phone",de:"Telefon",art:"das"},
+{en:"meeting",de:"Treffen",art:"das"},
+
+/* CITY & TRANSPORT */
+{en:"city",de:"Stadt",art:"die"},
+{en:"village",de:"Dorf",art:"das"},
+{en:"street",de:"Straße",art:"die"},
+{en:"car",de:"Auto",art:"das"},
+{en:"bus",de:"Bus",art:"der"},
+{en:"train",de:"Zug",art:"der"},
+{en:"ticket",de:"Ticket",art:"das"},
+{en:"airport",de:"Flughafen",art:"der"},
+{en:"station",de:"Bahnhof",art:"der"},
+{en:"bicycle",de:"Fahrrad",art:"das"},
+{en:"taxi",de:"Taxi",art:"das"},
+{en:"map",de:"Karte",art:"die"},
+{en:"hotel",de:"Hotel",art:"das"},
+{en:"shop",de:"Geschäft",art:"das"},
+{en:"bank",de:"Bank",art:"die"},
+
+/* TIME */
+{en:"day",de:"Tag",art:"der"},
+{en:"week",de:"Woche",art:"die"},
+{en:"month",de:"Monat",art:"der"},
+{en:"year",de:"Jahr",art:"das"},
+{en:"morning",de:"Morgen",art:"der"},
+{en:"evening",de:"Abend",art:"der"},
+{en:"night",de:"Nacht",art:"die"},
+{en:"today",de:"heute",art:""},
+{en:"tomorrow",de:"morgen",art:""},
+{en:"yesterday",de:"gestern",art:""},
+
+/* COMMON VERBS */
+{en:"be",de:"sein",art:""},
+{en:"have",de:"haben",art:""},
+{en:"go",de:"gehen",art:""},
+{en:"come",de:"kommen",art:""},
+{en:"do",de:"machen",art:""},
+{en:"say",de:"sagen",art:""},
+{en:"see",de:"sehen",art:""},
+{en:"eat",de:"essen",art:""},
+{en:"drink",de:"trinken",art:""},
+{en:"sleep",de:"schlafen",art:""},
+{en:"learn",de:"lernen",art:""},
+{en:"work",de:"arbeiten",art:""},
+{en:"live",de:"wohnen",art:""},
+{en:"buy",de:"kaufen",art:""},
+{en:"sell",de:"verkaufen",art:""},
+
+/* ADJECTIVES */
+{en:"big",de:"groß",art:""},
+{en:"small",de:"klein",art:""},
+{en:"good",de:"gut",art:""},
+{en:"bad",de:"schlecht",art:""},
+{en:"new",de:"neu",art:""},
+{en:"old",de:"alt",art:""},
+{en:"fast",de:"schnell",art:""},
+{en:"slow",de:"langsam",art:""},
+{en:"beautiful",de:"schön",art:""},
+{en:"easy",de:"einfach",art:""},
+
+/* NUMBERS 1–20 */
+{en:"one",de:"eins",art:""},
+{en:"two",de:"zwei",art:""},
+{en:"three",de:"drei",art:""},
+{en:"four",de:"vier",art:""},
+{en:"five",de:"fünf",art:""},
+{en:"six",de:"sechs",art:""},
+{en:"seven",de:"sieben",art:""},
+{en:"eight",de:"acht",art:""},
+{en:"nine",de:"neun",art:""},
+{en:"ten",de:"zehn",art:""},
+
+/* COLORS */
+{en:"red",de:"rot",art:""},
+{en:"blue",de:"blau",art:""},
+{en:"green",de:"grün",art:""},
+{en:"yellow",de:"gelb",art:""},
+{en:"black",de:"schwarz",art:""},
+{en:"white",de:"weiß",art:""},
+{en:"brown",de:"braun",art:""},
+{en:"gray",de:"grau",art:""},
+{en:"pink",de:"rosa",art:""},
+{en:"orange color",de:"orange",art:""},
+
+/* CLOTHES */
+{en:"shirt",de:"Hemd",art:"das"},
+{en:"t-shirt",de:"T-Shirt",art:"das"},
+{en:"pants",de:"Hose",art:"die"},
+{en:"jeans",de:"Jeans",art:"die"},
+{en:"jacket",de:"Jacke",art:"die"},
+{en:"coat",de:"Mantel",art:"der"},
+{en:"dress",de:"Kleid",art:"das"},
+{en:"skirt",de:"Rock",art:"der"},
+{en:"shoe",de:"Schuh",art:"der"},
+{en:"socks",de:"Socken",art:"die"},
+{en:"hat",de:"Hut",art:"der"},
+{en:"glasses",de:"Brille",art:"die"},
+{en:"belt",de:"Gürtel",art:"der"},
+{en:"watch",de:"Uhr",art:"die"},
+{en:"bag",de:"Tasche",art:"die"},
+
+/* BODY */
+{en:"head",de:"Kopf",art:"der"},
+{en:"hand",de:"Hand",art:"die"},
+{en:"arm",de:"Arm",art:"der"},
+{en:"leg",de:"Bein",art:"das"},
+{en:"foot",de:"Fuß",art:"der"},
+{en:"eye",de:"Auge",art:"das"},
+{en:"ear",de:"Ohr",art:"das"},
+{en:"nose",de:"Nase",art:"die"},
+{en:"mouth",de:"Mund",art:"der"},
+{en:"hair",de:"Haar",art:"das"},
+{en:"face",de:"Gesicht",art:"das"},
+{en:"finger",de:"Finger",art:"der"},
+{en:"tooth",de:"Zahn",art:"der"},
+{en:"back",de:"Rücken",art:"der"},
+{en:"stomach",de:"Bauch",art:"der"},
+
+/* WEATHER */
+{en:"weather",de:"Wetter",art:"das"},
+{en:"sun",de:"Sonne",art:"die"},
+{en:"rain",de:"Regen",art:"der"},
+{en:"snow",de:"Schnee",art:"der"},
+{en:"wind",de:"Wind",art:"der"},
+{en:"cloud",de:"Wolke",art:"die"},
+{en:"cold",de:"kalt",art:""},
+{en:"hot",de:"heiß",art:""},
+{en:"warm",de:"warm",art:""},
+{en:"cool",de:"kühl",art:""},
+
+/* DAYS */
+{en:"monday",de:"Montag",art:"der"},
+{en:"tuesday",de:"Dienstag",art:"der"},
+{en:"wednesday",de:"Mittwoch",art:"der"},
+{en:"thursday",de:"Donnerstag",art:"der"},
+{en:"friday",de:"Freitag",art:"der"},
+{en:"saturday",de:"Samstag",art:"der"},
+{en:"sunday",de:"Sonntag",art:"der"},
+
+/* MONTHS */
+{en:"january",de:"Januar",art:"der"},
+{en:"february",de:"Februar",art:"der"},
+{en:"march",de:"März",art:"der"},
+{en:"april",de:"April",art:"der"},
+{en:"may",de:"Mai",art:"der"},
+{en:"june",de:"Juni",art:"der"},
+{en:"july",de:"Juli",art:"der"},
+{en:"august",de:"August",art:"der"},
+{en:"september",de:"September",art:"der"},
+{en:"october",de:"Oktober",art:"der"},
+{en:"november",de:"November",art:"der"},
+{en:"december",de:"Dezember",art:"der"},
+
+/* PLACES */
+{en:"hospital",de:"Krankenhaus",art:"das"},
+{en:"pharmacy",de:"Apotheke",art:"die"},
+{en:"market",de:"Markt",art:"der"},
+{en:"park",de:"Park",art:"der"},
+{en:"library",de:"Bibliothek",art:"die"},
+{en:"cinema",de:"Kino",art:"das"},
+{en:"museum",de:"Museum",art:"das"},
+{en:"church",de:"Kirche",art:"die"},
+{en:"police",de:"Polizei",art:"die"},
+{en:"post office",de:"Post",art:"die"},
+
+/* QUESTION WORDS */
+{en:"who",de:"wer",art:""},
+{en:"what",de:"was",art:""},
+{en:"where",de:"wo",art:""},
+{en:"when",de:"wann",art:""},
+{en:"why",de:"warum",art:""},
+{en:"how",de:"wie",art:""},
+{en:"which",de:"welche",art:""},
+{en:"how much",de:"wie viel",art:""},
+{en:"how many",de:"wie viele",art:""},
+{en:"whose",de:"wessen",art:""},
+
+/* DAILY VERBS */
+{en:"open",de:"öffnen",art:""},
+{en:"close",de:"schließen",art:""},
+{en:"start",de:"starten",art:""},
+{en:"finish",de:"beenden",art:""},
+{en:"call",de:"anrufen",art:""},
+{en:"answer",de:"antworten",art:""},
+{en:"wait",de:"warten",art:""},
+{en:"help",de:"helfen",art:""},
+{en:"need",de:"brauchen",art:""},
+{en:"want",de:"wollen",art:""},
+{en:"like",de:"mögen",art:""},
+{en:"love",de:"lieben",art:""},
+{en:"hate",de:"hassen",art:""},
+{en:"give",de:"geben",art:""},
+{en:"take",de:"nehmen",art:""},
+{en:"find",de:"finden",art:""},
+{en:"lose",de:"verlieren",art:""},
+{en:"read",de:"lesen",art:""},
+{en:"write",de:"schreiben",art:""},
+{en:"listen",de:"hören",art:""},
+
+/* ADJECTIVES EXTRA */
+{en:"happy",de:"glücklich",art:""},
+{en:"sad",de:"traurig",art:""},
+{en:"angry",de:"wütend",art:""},
+{en:"tired",de:"müde",art:""},
+{en:"hungry",de:"hungrig",art:""},
+{en:"thirsty",de:"durstig",art:""},
+{en:"rich",de:"reich",art:""},
+{en:"poor",de:"arm",art:""},
+{en:"cheap",de:"billig",art:""},
+{en:"expensive",de:"teuer",art:""},
+
+/* PREPOSITIONS */
+{en:"in",de:"in",art:""},
+{en:"on",de:"auf",art:""},
+{en:"under",de:"unter",art:""},
+{en:"over",de:"über",art:""},
+{en:"next to",de:"neben",art:""},
+{en:"between",de:"zwischen",art:""},
+{en:"behind",de:"hinter",art:""},
+{en:"before",de:"vor",art:""},
+{en:"after",de:"nach",art:""},
+{en:"with",de:"mit",art:""},
+
+/* NUMBERS 11–30 */
+{en:"eleven",de:"elf",art:""},
+{en:"twelve",de:"zwölf",art:""},
+{en:"thirteen",de:"dreizehn",art:""},
+{en:"fourteen",de:"vierzehn",art:""},
+{en:"fifteen",de:"fünfzehn",art:""},
+{en:"sixteen",de:"sechzehn",art:""},
+{en:"seventeen",de:"siebzehn",art:""},
+{en:"eighteen",de:"achtzehn",art:""},
+{en:"nineteen",de:"neunzehn",art:""},
+{en:"twenty",de:"zwanzig",art:""},
+{en:"thirty",de:"dreißig",art:""},
+
+/* COMMON EXPRESSIONS */
+{en:"hello",de:"hallo",art:""},
+{en:"goodbye",de:"tschüss",art:""},
+{en:"please",de:"bitte",art:""},
+{en:"thank you",de:"danke",art:""},
+{en:"sorry",de:"entschuldigung",art:""},
+{en:"yes",de:"ja",art:""},
+{en:"no",de:"nein",art:""},
+{en:"okay",de:"okay",art:""},
+{en:"welcome",de:"willkommen",art:""},
+{en:"excuse me",de:"entschuldigen Sie",art:""},
+
+/* DIRECTIONS & POSITION */
+{en:"left",de:"links",art:""},
+{en:"right",de:"rechts",art:""},
+{en:"straight",de:"geradeaus",art:""},
+{en:"near",de:"nah",art:""},
+{en:"far",de:"weit",art:""},
+{en:"inside",de:"innen",art:""},
+{en:"outside",de:"außen",art:""},
+{en:"up",de:"oben",art:""},
+{en:"down",de:"unten",art:""},
+{en:"around",de:"um",art:""},
+
+/* SHOPPING */
+{en:"shop",de:"Laden",art:"der"},
+{en:"price",de:"Preis",art:"der"},
+{en:"money",de:"Geld",art:"das"},
+{en:"euro",de:"Euro",art:"der"},
+{en:"cash",de:"Bargeld",art:"das"},
+{en:"credit card",de:"Kreditkarte",art:"die"},
+{en:"receipt",de:"Quittung",art:"die"},
+{en:"size",de:"Größe",art:"die"},
+{en:"cheap",de:"günstig",art:""},
+{en:"expensive",de:"teuer",art:""},
+
+/* HEALTH */
+{en:"doctor",de:"Arzt",art:"der"},
+{en:"hospital",de:"Krankenhaus",art:"das"},
+{en:"medicine",de:"Medizin",art:"die"},
+{en:"pain",de:"Schmerz",art:"der"},
+{en:"fever",de:"Fieber",art:"das"},
+{en:"headache",de:"Kopfschmerz",art:"der"},
+{en:"cold illness",de:"Erkältung",art:"die"},
+{en:"healthy",de:"gesund",art:""},
+{en:"sick",de:"krank",art:""},
+{en:"appointment",de:"Termin",art:"der"},
+
+/* EMOTIONS */
+{en:"happy",de:"froh",art:""},
+{en:"sad",de:"traurig",art:""},
+{en:"angry",de:"böse",art:""},
+{en:"excited",de:"aufgeregt",art:""},
+{en:"bored",de:"gelangweilt",art:""},
+{en:"afraid",de:"ängstlich",art:""},
+{en:"surprised",de:"überrascht",art:""},
+{en:"proud",de:"stolz",art:""},
+{en:"nervous",de:"nervös",art:""},
+{en:"calm",de:"ruhig",art:""},
+
+/* CONNECTORS */
+{en:"and",de:"und",art:""},
+{en:"or",de:"oder",art:""},
+{en:"but",de:"aber",art:""},
+{en:"because",de:"weil",art:""},
+{en:"therefore",de:"deshalb",art:""},
+{en:"also",de:"auch",art:""},
+{en:"then",de:"dann",art:""},
+{en:"before",de:"bevor",art:""},
+{en:"after",de:"danach",art:""},
+{en:"if",de:"wenn",art:""},
+
+/* DAILY VERBS EXTRA */
+{en:"drive",de:"fahren",art:""},
+{en:"run",de:"rennen",art:""},
+{en:"walk",de:"laufen",art:""},
+{en:"sit",de:"sitzen",art:""},
+{en:"stand",de:"stehen",art:""},
+{en:"cook",de:"kochen",art:""},
+{en:"clean",de:"putzen",art:""},
+{en:"wash",de:"waschen",art:""},
+{en:"travel",de:"reisen",art:""},
+{en:"visit",de:"besuchen",art:""},
+
+/* NATURE */
+{en:"tree",de:"Baum",art:"der"},
+{en:"flower",de:"Blume",art:"die"},
+{en:"river",de:"Fluss",art:"der"},
+{en:"mountain",de:"Berg",art:"der"},
+{en:"sea",de:"Meer",art:"das"},
+{en:"lake",de:"See",art:"der"},
+{en:"forest",de:"Wald",art:"der"},
+{en:"sky",de:"Himmel",art:"der"},
+{en:"earth",de:"Erde",art:"die"},
+{en:"air",de:"Luft",art:"die"},
+
+/* TECHNOLOGY */
+{en:"internet",de:"Internet",art:"das"},
+{en:"website",de:"Webseite",art:"die"},
+{en:"password",de:"Passwort",art:"das"},
+{en:"screen",de:"Bildschirm",art:"der"},
+{en:"keyboard",de:"Tastatur",art:"die"},
+{en:"mouse",de:"Maus",art:"die"},
+{en:"file",de:"Datei",art:"die"},
+{en:"download",de:"herunterladen",art:""},
+{en:"upload",de:"hochladen",art:""},
+{en:"print",de:"drucken",art:""},
+
+/* TRAVEL EXTRA */
+{en:"luggage",de:"Gepäck",art:"das"},
+{en:"passport",de:"Pass",art:"der"},
+{en:"border",de:"Grenze",art:"die"},
+{en:"flight",de:"Flug",art:"der"},
+{en:"seat",de:"Sitz",art:"der"},
+{en:"departure",de:"Abflug",art:"der"},
+{en:"arrival",de:"Ankunft",art:"die"},
+{en:"delay",de:"Verspätung",art:"die"},
+{en:"reservation",de:"Reservierung",art:"die"},
+{en:"guide",de:"Führer",art:"der"},
+
+  
 ];
+
+
 
 let currentIndex = 0;
 let currentWord = {};
@@ -199,9 +646,14 @@ function setDisplayWord() {
 function checkAnswer() {
   const user = answerInput.value.trim().toLowerCase();
 
-  let correct = directionENtoDE
-    ? currentWord.de.toLowerCase()
-    : currentWord.en.toLowerCase();
+  let correct;
+
+  if (directionENtoDE) {
+    // Expect article + noun
+    correct = (currentWord.art + " " + currentWord.de).toLowerCase();
+  } else {
+    correct = currentWord.en.toLowerCase();
+  }
 
   if (user === correct) {
     score++;
@@ -214,16 +666,18 @@ function checkAnswer() {
   }
 }
 
+
 function showCorrect() {
   let correctWord, lang;
 
   if (directionENtoDE) {
-    correctWord = currentWord.de;
-    lang = "de-DE";
-  } else {
-    correctWord = currentWord.en;
-    lang = "en-US";
-  }
+  correctWord = currentWord.art + " " + currentWord.de;
+  lang = "de-DE";
+} else {
+  correctWord = currentWord.en;
+  lang = "en-US";
+}
+
 
   correctBox.innerText = "Correct: " + correctWord;
   speak(correctWord, lang);
